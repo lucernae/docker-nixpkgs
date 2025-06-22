@@ -25,22 +25,22 @@ jobs:
           - nixos-25.05
         target_image:
           - bash
-          - busybox
-          - cachix
-          - cachix-flakes
-          - caddy
-          - curl
+#          - busybox
+#          - cachix
+#          - cachix-flakes
+#          - caddy
+#          - curl
           - devcontainer
-          - devenv
-          - docker-compose
-          - hugo
-          - kubectl
-          - kubernetes-helm
-          - nginx
-          - nix
-          - nix-flakes
-          - nix-unstable
-          - nix-unstable-static
+#          - devenv
+#          - docker-compose
+#          - hugo
+#          - kubectl
+#          - kubernetes-helm
+#          - nginx
+#          - nix
+#          - nix-flakes
+#          - nix-unstable
+#          - nix-unstable-static
     steps:
       - uses: actions/checkout@v3
       - name: Set up QEMU
@@ -82,22 +82,22 @@ jobs:
           - nixos-25.05
         target_image:
           - bash
-          - busybox
-          - cachix
-          - cachix-flakes
-          - caddy
-          - curl
+#          - busybox
+#          - cachix
+#          - cachix-flakes
+#          - caddy
+#          - curl
           - devcontainer
-          - devenv
-          - docker-compose
-          - hugo
-          - kubectl
-          - kubernetes-helm
-          - nginx
-          - nix
-          - nix-flakes
-          - nix-unstable
-          - nix-unstable-static
+#          - devenv
+#          - docker-compose
+#          - hugo
+#          - kubectl
+#          - kubernetes-helm
+#          - nginx
+#          - nix
+#          - nix-flakes
+#          - nix-unstable
+#          - nix-unstable-static
     needs:
       - build
     steps:
