@@ -5,6 +5,7 @@ on:
     - master
     # for testing at the moment
     - flake
+    - flake-devcontainer
   pull_request:
   workflow_dispatch:
   schedule:
