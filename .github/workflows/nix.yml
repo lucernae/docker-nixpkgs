@@ -20,6 +20,7 @@ jobs:
           - nixos-24.05
           - nixos-24.11
           - nixos-25.05
+          - nixos-25.11
         system:
           - aarch64-linux
           - x86_64-linux
@@ -69,6 +70,7 @@ jobs:
           - nixos-24.05
           - nixos-24.11
           - nixos-25.05
+          - nixos-25.11
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

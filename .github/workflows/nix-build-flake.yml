@@ -23,6 +23,7 @@ jobs:
           - nixos-24.05
           - nixos-24.11
           - nixos-25.05
+          - nixos-25.11
         target_image:
           - bash
           - busybox
@@ -80,6 +81,7 @@ jobs:
           - nixos-24.05
           - nixos-24.11
           - nixos-25.05
+          - nixos-25.11
         target_image:
           - bash
           - busybox
