@@ -20,8 +20,6 @@ jobs:
           - "aarch64-linux"
         nix_channel:
           - nixos-unstable
-          - nixos-24.05
-          - nixos-24.11
           - nixos-25.05
           - nixos-25.11
         target_image:
@@ -78,8 +76,6 @@ jobs:
       matrix:
         nix_channel:
           - nixos-unstable
-          - nixos-24.05
-          - nixos-24.11
           - nixos-25.05
           - nixos-25.11
         target_image:

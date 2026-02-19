@@ -17,8 +17,6 @@ jobs:
       matrix:
         channel:
           - nixos-unstable
-          - nixos-24.05
-          - nixos-24.11
           - nixos-25.05
           - nixos-25.11
         system:
@@ -67,8 +65,6 @@ jobs:
       matrix:
         channel:
           - nixos-unstable
-          - nixos-24.05
-          - nixos-24.11
           - nixos-25.05
           - nixos-25.11
     runs-on: ubuntu-latest
