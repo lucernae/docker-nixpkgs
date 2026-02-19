@@ -65,6 +65,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Load to local registry and retag
         run: |
+          echo "$(nix derivation show '.#docker-nixpkgs.${{matrix.nix_system}}."${{matrix.nix_channel}}".${{matrix.target_image}}' | jq -r)"
           export derivation_name=$(nix derivation show '.#docker-nixpkgs.${{matrix.nix_system}}."${{matrix.nix_channel}}".${{matrix.target_image}}' | jq '.[].outputs.out.path' -r)
           export tag=$(cat $derivation_name | docker load | awk '{print $3}')
           export image_prefix=ghcr.io/${{github.actor}}/${{secrets.CI_PROJECT_PATH}}/${{matrix.target_image}}
