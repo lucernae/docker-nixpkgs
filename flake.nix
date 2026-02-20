@@ -4,6 +4,7 @@
     nixpkgs-24-05.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-24-11.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-25-05.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-25-11.url = "github:NixOS/nixpkgs/nixos-25.11";
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat = {
       url = "github:edolstra/flake-compat";
@@ -12,7 +13,7 @@
     devshell.url = "github:numtide/devshell";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-24-05, nixpkgs-24-11, nixpkgs-25-05, flake-utils, devshell, ... }:
+  outputs = { self, nixpkgs, nixpkgs-24-05, nixpkgs-24-11, nixpkgs-25-05, nixpkgs-25-11, flake-utils, devshell, ... }:
     flake-utils.lib.eachDefaultSystem (system: {
       formatter = nixpkgs.legacyPackages.${system}.nixpkgs-fmt;
       docker-nixpkgs =
@@ -61,12 +62,24 @@
               })
             ];
           };
+          pkgs-25-11 = import nixpkgs-25-11 {
+            inherit system;
+            overlays = [
+              (import ./overlay.nix)
+              (final: prev: {
+                flakeParameters = {
+                  nixpkgsChannel = "nixos-25.11";
+                };
+              })
+            ];
+          };
         in
         {
             "nixos-unstable" = pkgs.docker-nixpkgs;
             "nixos-24.05" = pkgs-24-05.docker-nixpkgs;
             "nixos-24.11" = pkgs-24-11.docker-nixpkgs;
             "nixos-25.05" = pkgs-25-05.docker-nixpkgs;
+            "nixos-25.11" = pkgs-25-11.docker-nixpkgs;
         };
       devShell =
         let
